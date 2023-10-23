@@ -1,5 +1,6 @@
 import Prompt from "@/models/prompt";
 import { connectToDB } from "@/utils/database";
+import { revalidatePath } from "next/cache";
 
 export const revalidate = 1; 
 
@@ -8,6 +9,10 @@ export const GET = async (request) => {
         await connectToDB()
 
         const prompts = await Prompt.find({}).populate('creator')
+        
+        const path = request.nextUrl.searchParams.get("path") || "/";
+
+        revalidatePath(path);
 
         return new Response(JSON.stringify(prompts), { status: 200 })
     } catch (error) {

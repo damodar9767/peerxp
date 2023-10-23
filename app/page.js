@@ -103,7 +103,9 @@ const page = () => {
   const fetchPosts = async () => {
     const response = await fetch('/api/prompt',{
       cache:'no-store',
-    });
+    },
+    { next: { revalidate: 1 } },
+    );
     const  data = await response.json();
     
     
