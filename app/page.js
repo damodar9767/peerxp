@@ -1,113 +1,377 @@
-import Image from 'next/image'
+'use client'
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+import React, { useEffect } from 'react'
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+import '@/styles/dashboard.css'
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+import { useState } from 'react'
+import { signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
+import Link from 'next/link'
+import PopupForm from '@/components/PopupForm'
+import { data } from 'autoprefixer'
+import PopupForm2 from '@/components/editpopup'
+import { useRouter } from 'next/navigation'
+import Del from '@/components/Del'
+
+ 
+
+const page = () => {
+
+
+
+  const [delmod, setDelmod] = useState(false);
+  
+   const [posts, setPosts] = useState([]);
+   
+  const [mbmenu, setMbmenu] = useState(false);
+
+  const [posttobe, setPosttobe] = useState('');
+  const [posttobeDEleted, setPosttobeDEleted] = useState('');
+
+  
+  
+  
+  
+  
+  
+  const [isMobile, setIsMobile] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  
+  const [edit, setEdit] = useState(false);
+  
+  
+  
+  const [signlo, setSignlo] = useState(false);
+  const { data: session, status} = useSession()
+  
+  
+  const [from, setFrom] = useState({
+    name:'',
+    description:'',
+    category:'',
+    doe: '',
+    amount: '',
+  });
+  
+  
+  
+  const [searchText, setSearchText] = useState('');
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchedResults, setSearchedResults] = useState([]);
+
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
+
+    // debounce method
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResults(searchResult);
+      }, 500)
+    );
+  };
+  
+  const filterPrompts = (searchtext) => {
+    const regex = new RegExp(searchtext, "i"); 
+    return posts.filter(
+      (item) =>
+        regex.test(item.name) 
+    );
+  }
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.outerWidth <= 479);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+    
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const fetchPosts = async () => {
+    const response = await fetch('/api/prompt');
+    const  data = await response.json();
+    
+    
+    setPosts(data);
+    console.log(data);
+
+
+  }
+
+
+  useEffect(() => {
+    
+    fetchPosts();
+
+
+    
+  },[])
+
+
+
+  const router = useRouter() 
+
+  const handleFilterClick =() =>{
+
+    const filterbydtae = posts.sort((a,b) => new Date(a.doe) - new Date(b.doe));
+    console.log(filterbydtae);
+    setPosts(filterbydtae);
+    router.refresh();
+  }
+
+  
+  const handleEdit = async (key,postcreator) =>{
+
+    
+    if(!session) return 
+    if(session.user.name.replace(" ", "").toLowerCase() === postcreator){
+      setEdit(true)
+      setPosttobe(key)
+    } else{
+      window.alert('Not the owner')
+    }
+    
+
+
+  } 
+
+  const handleDelet = async (key) =>{
+    
+    if(!session) return 
+    setDelmod(true)
+    setPosttobeDEleted(key)
+
+
+  }
+
+  
+  
+  
+  
+    return (
+      <section className='dahboard relative z-0  pb-[1px]'>
+          <div className='leftnav'>
+            <div className='leftnav__p1'>
+             <h3 className='font-[700] text-[30px] leading-[44px] text-white mb-10' >Dasboard</h3>
+  
+             <ul>
+             <li><button className='flex gap-5 items-center mt-6 text-white opacity-70 focus:opacity-100 font-[100]'> <img src='/transaction_icon.svg' alt='transaction' className='transaction' /> My Expense</button></li>
+             <li><button className='flex gap-5 items-center mt-6 text-white opacity-70 focus:opacity-100 font-[100]'> <img src='/user_icon.svg' alt='user' className='user' /> Account</button></li>
+              
+              <li><button className='flex gap-5 items-center mt-6 text-white opacity-70 focus:opacity-100 font-[100]'> <img src='/setting_icon.svg' alt='setting' className='setting' /> Settings</button></li>
+  
+             </ul>
+  
+            </div>
+  
+            <div className='leftnav__p2'>
+              <button>Help</button>
+              <button>Contact Us</button>
+  
+            </div>
+  
+          </div>
+  
+          <div className='maindash'>
+            <div className='maindash1'>
+              <div className={` ml-3 sm:hidden  mb__menu relative`}>
+                <img  onClick={() => setMbmenu(!mbmenu)}
+                         src='/mbmenu.svg' alt='menu' className='w-5 h-5 object-contain' />
+                  <div className={`mmobilemenu absolute w ${!mbmenu && 'hidden'} `}>
+                    <ul className='bg-[#4285F4] py-6 px-8 pr-10 rounded-xl'>
+                        
+                    <li><button className='flex gap-5 items-center mt-6 text-white opacity-70 focus:opacity-100 font-[100]'> <img src='/transaction_icon.svg' alt='transaction' className='transaction' /> My Expense</button></li>
+                    <li><button className='flex gap-5 items-center mt-6 text-white opacity-70 focus:opacity-100 font-[100]'> <img src='/user_icon.svg' alt='user' className='user' /> Account</button></li>
+                      
+                    <li><button className='flex gap-5 items-center mt-6 text-white opacity-70 focus:opacity-100 font-[100]'> <img src='/setting_icon.svg' alt='setting' className='setting' /> Settings</button></li>
+
+                        <li>   <div className=' mt-5 text-xs flex justify-between items-center '>
+                              <button>Help</button>
+                              <button>Contact Us</button>
+                              </div>
+                        </li>
+
+
+
+            
+                  </ul>
+
+               
+
+                  </div>
+
+              </div>
+
+
+              <h3 className=' text-3xl sm:text-[50px] font-[700] text-[#4285F4]'>My Expense Manager </h3>
+  
+              <div className='maindash1__right'>
+               
+                 <img src='/bell.svg' alt='bell' />
+  
+                  
+      
+  
+                 <img src={`${status === "authenticated" ? session.user?.image : '/user_icon.svg'}`} alt='user' className={`${status === "authenticated" ?  'bg-red-800' : 'bg-black' } ml-4  rounded-full object-contain h-6 cursor-pointer  `} onClick={() => setSignlo(!signlo)} />
+  
+                 <div className={` ${signlo ? '': 'hidden' } fixed top-[60px] right-[40px] bg-white flex flex-col p-6 rounded-2xl  gap-3` }>
+                 {status === 'authenticated'? <button onClick={()=>signOut({callbackUrl: '/'})}>Sign Out</button> :<><Link href={'/signup'}>Register</Link>
+                 <Link href={'/login'}>Sign In</Link></>}
+                  
+
+                 </div>
+  
+                
+  
+              </div>
+  
+            </div>
+  
+           
+  
+            
+  
+            
+          </div>
+
+          <section className='tables ml-[275px] py-5 px-10  '>
+
+            <div className='filter_buttons'>
+
+              <button onClick={handleFilterClick} >Filter by Date of Expense</button>
+              <form className='searchbutton'>
+              <input 
+                type='text'
+                placeholder="Search by Name"
+                value={searchText}
+                onChange={handleSearchChange}
+                required
+                className=''
+              />
+
+            </form>
+              <button className='bg-green-500 '  onClick={() => {
+                if(!session) return
+                setIsPopupOpen(true)
+              }}>+ New Expanse</button>
+
+
+            </div>
+
+            <div className='mt-4'>
+            <table>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Date of Expense</th>
+                <th>Amount </th>
+                <th>Updated At</th>
+                <th>Created By</th>
+                <th> Edit / Delete </th>
+
+              </tr>
+
+
+              { !searchText &&posts.length !=0 ? posts.map((post) => {
+
+                const inputDate = new Date(post.doe.toString());
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+
+                const formattedDate = new Intl.DateTimeFormat('en-US', options).format(inputDate);
+
+                return(
+                <tr key={post._id}  >
+                  <td>{post.name}</td>
+                  <td>{post.category}</td>
+                  <td>{formattedDate}</td>
+                  <td>INR {post.amount}</td>
+                  <td>just now</td>
+                  <td>{session && session.user.name.replace(" ", "").toLowerCase() === post.creator?.username ? 'me': post.creator?.username }</td>
+                  <td className='flex justify-evenly items-center  '>
+                    <button onClick={() => handleEdit(post._id,post.creator?.username)} ><img src='applogo.svg' alt='pencil' className='pb-1' /></button>
+                    <button onClick={() => handleDelet(post._id)} ><img src='blue.svg' alt='dlete' /></button>
+                    <button><img  /></button>
+                  </td>
+
+                </tr>
+                )
+
+
+              }) : searchedResults.map((post) => {
+
+                const inputDate = new Date(post.doe.toString());
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+
+                const formattedDate = new Intl.DateTimeFormat('en-US', options).format(inputDate);
+
+                return(
+                <tr key={post._id}  >
+                  <td>{post.name}</td>
+                  <td>{post.category}</td>
+                  <td>{formattedDate}</td>
+                  <td>INR {post.amount}</td>
+                  <td>just now</td>
+                  <td>{session && session.user.name.replace(" ", "").toLowerCase() === post.creator?.username ? 'me': post.creator?.username }</td>
+                  <td className='flex justify-evenly items-center  '>
+                    <button onClick={() => handleEdit(post._id,post.creator?.username)} ><img src='applogo.svg' alt='pencil' className='pb-1' /></button>
+                    <button onClick={() => handleDelet(post._id)} ><img src='blue.svg' alt='dlete' /></button>
+                    <button><img  /></button>
+                  </td>
+
+                </tr>
+                )
+
+
+              })
+              
+              }
+              </tbody>
+            </table>
+            </div>
+
+           
+
+
+  
+            
+
+          </section>
+
+              {delmod && <Del setDelmod={setDelmod} posttobeDEleted={posttobeDEleted}  user={session?.user.id} /> }
+
+               {
+                  isPopupOpen && <PopupForm closeModal={setIsPopupOpen} type='Create' formdat={setFrom}  user={session?.user.id} />
+                
+                }
+
+                {
+                  edit && <PopupForm2 closeModal={setEdit} posttobe={posttobe} type='Edit' formdat={setFrom} user={session?.user.id}   />
+                
+                }
+
+
+
+     
+  
+        
+  
+  
+      </section>
+    )
 }
+
+export default page
